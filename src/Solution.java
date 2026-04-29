@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /*2026.4.26
@@ -132,3 +133,32 @@ class Solution {
                 return dp[amount] > amount ? -1 : dp[amount];
             }
         }*/
+/*
+给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
+        子序列 是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。
+        例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
+        class Solution {
+            public int lengthOfLIS(int[] nums) {
+                int dp[]=new int[nums.length+1];//dp数组记录到第i个元素为止的最长递增子序列
+                int max=0;
+                if(nums.length==0)
+                    return 0;
+
+                for(int i=0;i<nums.length;i++)
+                {
+                    dp[i]=1;
+                    for(int j=i-1;j>=0;j--)
+                    {
+                        if(nums[j]<nums[i]&&dp[j]+1>=dp[i])
+                            dp[i]=dp[j]+1;
+
+
+                    }
+                    max=Math.max(max,dp[i]);
+                }
+                return max;
+            }
+        }*/
+
+
+
