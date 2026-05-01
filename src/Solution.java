@@ -210,3 +210,102 @@ class Solution {
         return res;
     }
 }*/
+
+/*给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
+
+请你设计并实现时间复杂度为 O(n) 的算法解决此问题。*//*
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        */
+/*HashMap<Integer, Integer> map = new HashMap<>();//哈希表记录从该数开始的最长序列
+        int res = 0;
+            int now=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(!map.containsKey(nums[i]))//如果该数原来不在哈希表中
+            {
+               int left= map.containsKey(nums[i]-1)?map.get(nums[i]-1):0;//拿出左边数的最长
+               int right=map.containsKey(nums[i]+1)?map.get(nums[i]+1):0;//拿出右边数最长
+               now=left+right+1;
+               map.put(nums[i],now);
+             map.put(nums[i]-left,now);
+             map.put(nums[i]+right,now);
+
+            }
+              res=res>now?res:now;
+        }
+        return res;*//*
+
+
+        int res=0;
+        int now=0;
+        HashSet<Integer> map=new HashSet<>();
+        for(int i:nums)
+            map.add(i);
+
+        for(int j:map)
+        {
+            if(map.contains(j-1))//如果j不是起点
+            {continue;}
+
+            //j是序列的起点
+            now=j+1;
+            while(map.contains(now))
+                now++;
+
+            now=now-j;
+            res=res>now?res:now;
+        }
+
+        return res;
+    }
+}*/
+
+/*
+有效的括号
+class Solution {
+    public boolean isValid(String s) {
+        Deque<Character> stack=new ArrayDeque<>();
+        for(char c : s.toCharArray())
+        {
+            if(c=='('||c=='['||c=='{')
+                stack.push(c);
+
+            else if(c==')')
+            {
+                if(stack.isEmpty())
+                    return false;
+                if(stack.pop()=='(')
+                    continue;
+                else
+                    return false;
+
+            }
+            else if(c==']')
+            { if(stack.isEmpty())
+                return false;
+                if(stack.pop()=='[')
+                    continue;
+                else
+                    return false;
+
+            }
+            else if(c=='}')
+            {
+                if(stack.isEmpty())
+                    return false;
+                if(stack.pop()=='{')
+                    continue;
+                else
+                    return false;
+
+            }
+
+
+
+        }
+        return stack.isEmpty();
+
+    }
+}*/
