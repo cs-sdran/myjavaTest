@@ -309,3 +309,64 @@ class Solution {
 
     }
 }*/
+
+/*给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
+class Solution {
+    List<List<Integer>> res = new ArrayList<>(); // 存放结果
+    List<Integer> path = new ArrayList<>();      // 存放一个可能的全排列
+
+    public List<List<Integer>> permute(int[] nums) {
+        backtracking(nums);
+        return res;
+    }
+
+    public void backtracking(int[] nums) {
+        if (path.size() == nums.length) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (path.contains(nums[i])) {
+                continue;
+            }
+
+            path.add(nums[i]);
+
+            backtracking(nums);
+
+            path.remove(path.size() - 1);
+        }
+    }
+}*/
+
+/*给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+
+解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
+class Solution {
+    List<List<Integer>> res = new ArrayList<>(); // 存放结果
+    List<Integer> path = new ArrayList<>();      // 存放一个可能的全排列
+    public List<List<Integer>> subsets(int[] nums) {
+
+        backtracking(nums,0);
+        return res;
+    }
+    public void backtracking(int[] nums,int index)
+    {
+        if(path.size()<=nums.length)
+            res.add(new ArrayList<>(path));
+        for(int i=index;i<nums.length;i++)
+        {
+            if(path.contains(nums[i]))
+                continue;
+
+            if(path.size()<=nums.length)
+            {
+                path.add(nums[i]);
+                backtracking(nums,i+1);
+
+                path.remove(path.size()-1);
+            }
+        }
+    }
+}*/
