@@ -353,7 +353,7 @@ class Solution {
     }
     public void backtracking(int[] nums,int index)
     {
-        if(path.size()<=nums.length)
+        if(path.size()=nums.length)
             res.add(new ArrayList<>(path));
         for(int i=index;i<nums.length;i++)
         {
@@ -367,6 +367,57 @@ class Solution {
 
                 path.remove(path.size()-1);
             }
+        }
+    }
+}*/
+
+
+/*给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+
+import java.util.*;
+
+class Solution {
+    List<String> res = new ArrayList<>();
+
+    String[] zimu = {
+            "",
+            "",
+            "abc",
+            "def",
+            "ghi",
+            "jkl",
+            "mno",
+            "pqrs",
+            "tuv",
+            "wxyz"
+    };
+
+    public List<String> letterCombinations(String digits) {
+        if (digits == null || digits.length() == 0) {
+            return res;
+        }
+
+        backtracking(digits, 0, new StringBuilder());
+        return res;
+    }
+
+    public void backtracking(String digits, int index, StringBuilder path) {
+        if (index == digits.length()) {
+            res.add(path.toString());
+            return;
+        }
+
+        int digit = digits.charAt(index) - '0';
+        String letters = zimu[digit];
+
+        for (int j = 0; j < letters.length(); j++) {
+            path.append(letters.charAt(j));
+
+            backtracking(digits, index + 1, path);
+
+            path.deleteCharAt(path.length() - 1);
         }
     }
 }*/
