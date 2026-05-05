@@ -421,3 +421,58 @@ class Solution {
         }
     }
 }*/
+
+/*
+给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target
+，找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，
+并以列表形式返回。你可以按 任意顺序 返回这些组合。
+candidates 中的 同一个 数字可以 无限制重复被选取 。
+如果至少一个数字的被选数量不同，则两种组合是不同的。
+对于给定的输入，保证和为 target 的不同组合数少于 150 个。*/
+
+/*class Solution {
+
+    List<List<Integer>> res = new ArrayList<>(); // 存放结果
+    List<Integer> path = new ArrayList<>();      // 存放一个可能的全排列
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        backtracking(candidates,0,target);
+        return res;
+    }
+    public void backtracking(int[] candidates,int index,int target)
+    {
+        if(target<0)
+            return;
+        if(target==0)
+        {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for(int i=index;i<candidates.length;i++)
+        {
+            path.add(candidates[i]);
+            backtracking(candidates,i,target-candidates[i]);
+            path.remove(path.size()-1);
+        }
+    }
+}*/
+
+/*给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。
+
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。*/
+/*class Solution {
+    public int majorityElement(int[] nums) {
+        int max=nums[0];//存放多数元素
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i: nums)
+        {
+            if(map.containsKey(i))
+                map.put(i,map.get(i)+1);
+            else
+                map.put(i,1);
+
+            if(map.get(i)>nums.length/2)
+                max=i;
+        }
+        return max;
+    }
+}*/
