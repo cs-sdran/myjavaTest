@@ -476,3 +476,23 @@ candidates 中的 同一个 数字可以 无限制重复被选取 。
         return max;
     }
 }*/
+
+/*class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int sublength=Integer.MAX_VALUE;
+        int left=0,right=0;//滑动窗口的起始位置和终止位置
+        int sum=nums[right];
+        for(right=0;right<nums.length;right++)
+        {
+            sum+=nums[right];
+            while(sum>=target)
+            {
+                sublength=Math.min(sublength,right-left+1);
+                sum-=nums[left];
+                left++;
+            }
+        }
+
+        return sublength==Integer.MAX_VALUE?0:sublength;
+    }
+}*/
