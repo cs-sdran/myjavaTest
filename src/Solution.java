@@ -507,3 +507,92 @@ class Solution {
         return res;
     }
 }*/
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+/*class Solution {
+    public boolean compare(TreeNode left,TreeNode right)
+    {
+        if(left==null&&right==null)
+            return true;
+        if(left==null&&right!=null)
+            return false;
+        if(right==null&&left!=null)
+            return false;
+
+        if(right.val!=left.val)
+            return false;
+
+        boolean outside=compare(left.left,right.right);
+        boolean inside=compare(left.right,right.left);
+        return outside&&inside;
+    }
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null)
+            return true;
+        return compare(root.left,root.right);
+    }
+}*/
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+/*
+给你一棵二叉树的根节点，返回该树的 直径 。
+
+        二叉树的 直径 是指树中任意两个节点之间最长路径的 长度 。这条路径可能经过也可能不经过根节点 root 。
+
+        两节点之间路径的 长度 由它们之间边数表示。
+class Solution {
+    int max=0;
+    public int getmax(TreeNode root )
+    {
+        int rightlen=0,leftlen=0;
+        if(root==null)
+            return 0;
+
+        rightlen=getmax(root.right);
+
+        leftlen=getmax(root.left);
+
+        max=Math.max(max,leftlen+rightlen);
+
+        return Math.max(rightlen,leftlen)+1;
+
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        //路径即为左子树高度加右子树高度
+
+
+        getmax(root);
+        return max;
+
+    }
+}
+*/
